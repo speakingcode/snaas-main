@@ -1,0 +1,6 @@
+[submodule "snaas-api"]
+	path = snaas-api
+	url = git@github.com:speakingcode/snaas-api.git
+[submodule "snaas-ui-react"]
+	path = snaas-ui-react
+	url = git@github.com:speakingcode/snaas-ui-react.git
