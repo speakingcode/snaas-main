@@ -1,0 +1,31 @@
+version: '3.6'
+
+services:
+  snaas-api:
+    build: ./snaas-api/
+    image: snaas-api:latest
+    volumes:
+      - ./snaas-api:/snaas-api
+    working_dir: /snaas-api
+    ports:
+      - "3001:3001"
+    command: puma -p 3001
+    depends_on:
+      - snaas-postgres
+    environment:
+      DATABASE_URL: postgres://postgres@snaas-postgres
+
+  snaas-ui-react:
+    build:
+      context: ./snaas-ui-react/
+      dockerfile: Dockerfile.dev
+    image: snaas-ui-react:latest
+    volumes:
+      - ./snaas-ui-react/src:/snaas-ui-react/src
+    command: npm start
+    ports:
+      - "3000:3000"
+
+
+  snaas-postgres:
+    image: postgres:10.3-alpine
