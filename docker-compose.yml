@@ -21,7 +21,11 @@ services:
       dockerfile: Dockerfile.dev
     image: snaas-ui-react:latest
     volumes:
+        #- ./snaas-ui-react:/snaas-ui-react
       - ./snaas-ui-react/src:/snaas-ui-react/src
+      - ./snaas-ui-react/build:/snaas-ui-react/build
+      - ${PWD}/snaas-ui-react/package.json:/snaas-ui-react/package.json
+      - ${PWD}/snaas-ui-react/package-lock.json:/snaas-ui-react/package-lock.json
     command: npm start
     ports:
       - "3000:3000"
