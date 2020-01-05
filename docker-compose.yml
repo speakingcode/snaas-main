@@ -13,13 +13,16 @@ services:
     depends_on:
       - snaas-postgres
     environment:
-      DATABASE_URL: postgres://postgres@snaas-postgres
+      - DATABASE_URL=postgres://postgres@snaas-postgres
+      - SNAAS_UI_SNAAS_API_KEY
 
   snaas-ui-react:
     build:
       context: ./snaas-ui-react/
       dockerfile: Dockerfile.dev
     image: snaas-ui-react:latest
+    environment:
+      - SNAAS_UI_SNAAS_API_KEY
     volumes:
         #- ./snaas-ui-react:/snaas-ui-react
       - ./snaas-ui-react/src:/snaas-ui-react/src
