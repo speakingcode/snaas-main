@@ -4,3 +4,9 @@
 [submodule "snaas-ui-react"]
 	path = snaas-ui-react
 	url = git@github.com:speakingcode/snaas-ui-react.git
+[submodule "snoopville-api"]
+	path = snoopville-api
+	url = git@github.com:speakingcode/snoopville-api.git
+[submodule "snoopville-ui-react"]
+	path = snoopville-ui-react
+	url = git@github.com:speakingcode/snoopville-ui-react.git
